@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="el" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SV Radio Test Simulator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="icons/icons8-night-mode-48-black.png">
+</head>
+<body>
+
+    <div class="app-container">
+        
+        <!-- Persistent Header -->
+        <div class="main-header">
+            <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Dark Mode">
+                <img src="icons/icons8-night-mode-48-white.png" id="theme-icon" alt="Dark Mode">
+            </button>
+            <h1>ΕΡΩΤΗΜΑΤΟΛΟΓΙΟ ΠΟΛΛΑΠΛΩΝ ΕΠΙΛΟΓΩΝ</h1>
+            <h2>ΓΙΑ ΤΙΣ ΕΞΕΤΑΣΕΙΣ ΤΩΝ ΡΑ∆ΙΟΕΡΑΣΙΤΕΧΝΩΝ</h2>
+            <div class="category-pill">ΚΑΤΗΓΟΡΙΑ 1 (SV)</div>
+        </div>
+
+        <!-- Start Screen -->
+        <div id="start-screen" class="screen active">
+            <div class="logo">📻</div>
+            <p>Προσομοίωση Εξετάσεων</p>
+            <div class="info-card">
+                <p><strong>100 τυχαίες ερωτήσεις</strong></p>
+                <p>50 Τεχνικά (Α) | 30 Λειτουργικοί (Β) | 20 Νομικά (Γ)</p>
+            </div>
+            <button id="start-btn" class="primary-btn">Έναρξη Νέου Τεστ</button>
+        </div>
+
+        <!-- Quiz Screen -->
+        <div id="quiz-screen" class="screen">
+            <div class="header">
+                <div class="progress-text">Ερώτηση <span id="current-q-num">1</span>/100</div>
+                <div class="category-badge" id="q-category">Τεχνικά</div>
+            </div>
+            <div class="progress-bar">
+                <div id="progress-fill" class="progress-fill"></div>
+            </div>
+            
+            <div class="question-container">
+                <h2 id="question-text">Κείμενο ερώτησης...</h2>
+                <div id="options-container" class="options-grid">
+                    <!-- Options injected via JS -->
+                </div>
+            </div>
+
+            <div id="immediate-explanation" class="immediate-explanation hidden">
+                <h3>Λάθος Απάντηση!</h3>
+                <div id="immediate-explanation-text"></div>
+            </div>
+
+            <div class="footer">
+                <button id="next-btn" class="secondary-btn" disabled>Επόμενη Ερώτηση</button>
+            </div>
+        </div>
+
+        <!-- Results Screen -->
+        <div id="results-screen" class="screen">
+            <div class="logo">🎉</div>
+            <h1 style="color: var(--text-main); margin-bottom: 20px;">Αποτελέσματα</h1>
+            <div class="score-card">
+                <div class="score-number"><span id="final-score">0</span> / 100</div>
+                <div id="score-message">...</div>
+            </div>
+            <p>Απαιτούμενο σκορ επιτυχίας: <strong>80/100</strong></p>
+
+            <button id="review-btn" class="primary-btn" style="margin-top: 20px;">Ανασκόπηση Λαθών</button>
+            <button id="restart-btn" class="secondary-btn" style="margin-top: 10px;">Νέο Τεστ</button>
+            
+            <div id="review-container" class="review-container hidden">
+                <h3>Τα λάθη σου & Εξηγήσεις</h3>
+                <div id="mistakes-list"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
